@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ES2020", // Bisa juga ES2022
+    "module": "ESNext", // Penting untuk ESM
+    "moduleResolution": "node",
+    "outDir": "dist",
+    "rootDir": "src",
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true
+  },
+  "include": [
+    "src"
+  ]
+}

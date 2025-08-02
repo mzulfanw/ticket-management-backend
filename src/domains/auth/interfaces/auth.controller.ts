@@ -11,10 +11,10 @@ export class AuthController {
     const body = req.body
     const result = await this.authService.login(body.email, body.password)
     const token = jwtService.generateToken({
-      id: result.id,
+      _id: result._id,
       role: result.role
     })
-    const response = new LoginResponseDTO({ id: result.id, name: result.name, role: result.role, token: token })
+    const response = new LoginResponseDTO({ _id: result._id, name: result.name, role: result.role, token: token })
     return new ApiSuccess(response, MESSAGES.AUTH.SUCCESS_LOGIN).send(res)
   }
 }

@@ -1,13 +1,13 @@
 type LoginResponsePayload = {
   token: string;
-  id: string;
+  _id: string;
   name: string;
   role: string;
 };
 
 export class LoginResponseDTO {
   token!: string;
-  id!: string;
+  _id!: string;
   name!: string;
   role!: string;
 

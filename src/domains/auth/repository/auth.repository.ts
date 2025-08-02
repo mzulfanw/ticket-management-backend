@@ -6,7 +6,7 @@ export class UserRepository implements AuthRepository {
     const user = await UserModel.findOne({ email })
     if (!user) return null
     return {
-      id: user.id,
+      _id: user.id,
       email: user.email,
       password: user.password,
       role: user.role,

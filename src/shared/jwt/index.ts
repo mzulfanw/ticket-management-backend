@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken';
 import { APP_CONFIG } from '../../constants/app';
 
 export interface JwtPayload {
-  id: string;
+  _id: string;
   role: string;
 }
 

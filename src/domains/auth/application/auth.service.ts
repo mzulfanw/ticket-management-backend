@@ -14,7 +14,7 @@ export class AuthService {
       throw new ApiError(status.UNAUTHORIZED, MESSAGES.AUTH.INVALID_CREDENTIALS)
     }
     const token = JwtService.generateToken({
-      id: user.id,
+      _id: user._id,
       role: user.role
     })
     return { token, ...user }

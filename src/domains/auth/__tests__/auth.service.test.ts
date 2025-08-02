@@ -10,7 +10,7 @@ jest.mock('bcrypt');
 jest.mock('../../../shared/jwt');
 
 const mockUser: UserEntity = {
-  id: 'user-1',
+  _id: 'user-1',
   email: 'test@example.com',
   password: 'password',
   role: 'L1',
@@ -46,7 +46,9 @@ describe('AuthService', () => {
     expect(mockRepo.findByEmail).toHaveBeenCalledWith('test@example.com');
     expect(bcrypt.compare).toHaveBeenCalledWith('validpassword', mockUser.password);
     expect(JwtService.generateToken).toHaveBeenCalledWith({
-      id: mockUser.id,
+      _id: mockUser._id,
+      email: mockUser.email,
+      name: mockUser.name,
       role: mockUser.role,
     });
   });

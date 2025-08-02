@@ -2,11 +2,11 @@ import type { Response } from "express";
 import { status as httpStatus } from "http-status"
 
 export class ApiSuccess<T = unknown> {
-  public code: number;
+  public readonly code: number;
   public readonly message: string;
   public readonly data: T;
 
-  constructor(data: T, message = 'Success', code = httpStatus.OK,) {
+  constructor(data: T, message = 'Success', code: number = httpStatus.OK,) {
     this.data = data;
     this.message = message;
     this.code = code

@@ -12,6 +12,8 @@ export class AuthController {
     const result = await this.authService.login(body.email, body.password)
     const token = jwtService.generateToken({
       _id: result._id,
+      email: result.email,
+      name: result.name,
       role: result.role
     })
     const response = new LoginResponseDTO({ _id: result._id, name: result.name, role: result.role, token: token })

@@ -33,5 +33,8 @@ export interface TicketEntity {
 }
 
 export interface TicketRepository {
-  getBoards(): Promise<TicketEntity[]>
+  getBoards(): Promise<TicketEntity[]>;
+  create(data: Partial<TicketEntity>): Promise<TicketEntity>;
+  findById(id: string): Promise<TicketEntity | null>
+  update(id: string, data: Partial<TicketEntity>): Promise<TicketEntity>
 }

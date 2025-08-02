@@ -15,6 +15,8 @@ export class AuthService {
     }
     const token = JwtService.generateToken({
       _id: user._id,
+      email: user.email,
+      name: user.name,
       role: user.role
     })
     return { token, ...user }

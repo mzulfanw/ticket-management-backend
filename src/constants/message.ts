@@ -13,7 +13,7 @@ const MESSAGES = {
   TICKET: {
     SUCCESS_RETRIEVED_DATA: 'Successful get data of ticket',
     SUCCESS_CREATED_DATA: 'Successful created data',
-    SUCCESS_UPDATE_DATA: 'Successful updated data',
+    SUCCESS_UPDATE_DATA: 'Successful updated / moved data',
     FORBIDDEN: 'Only :param1 ticket can be escalated to :param2',
     MAX_ESCALATION: 'Ticket already at max escalation'
   }

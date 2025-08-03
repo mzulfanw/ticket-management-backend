@@ -58,7 +58,7 @@ export class TicketService {
         {
           actionBy: user,
           role: user.role,
-          note: `Updated status to ${status}`,
+          note: `Updated status to ${dto.status}`,
           createdAt: new Date(),
         },
       ],

@@ -9,7 +9,7 @@ export const CreateTicketSchema = z.object({
 });
 
 export const UpdateStatusSchema = z.object({
-  status: z.enum(['New', 'Attending', 'Completed']),
+  status: z.enum(['New', 'Attending', 'Completed'], { error: 'Only status New, Attending, Completed !' }),
 });
 
 export const EscalateTicketSchema = z.object({

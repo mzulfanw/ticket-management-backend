@@ -9,7 +9,8 @@ import httpStatus from "http-status"
 export class TicketController {
   constructor(private readonly ticketService: TicketService) { }
   async getAll(req: Request, res: Response) {
-    const _boards = await this.ticketService.getBoards()
+    const { user } = req
+    const _boards = await this.ticketService.getBoards(user as SafeUserEntity)
     return new ApiSuccess(_boards, MESSAGES.TICKET.SUCCESS_RETRIEVED_DATA).send(res)
   }
   async createTicket(req: Request, res: Response) {

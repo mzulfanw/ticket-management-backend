@@ -3,6 +3,7 @@ type LoginResponsePayload = {
   _id: string;
   name: string;
   role: string;
+  email: string;
 };
 
 export class LoginResponseDTO {
@@ -10,6 +11,7 @@ export class LoginResponseDTO {
   _id!: string;
   name!: string;
   role!: string;
+  email!: string
 
   constructor(payload: LoginResponsePayload) {
     Object.assign(this, payload);

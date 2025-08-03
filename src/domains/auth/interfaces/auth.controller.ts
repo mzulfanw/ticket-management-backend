@@ -16,7 +16,7 @@ export class AuthController {
       name: result.name,
       role: result.role
     })
-    const response = new LoginResponseDTO({ _id: result._id, name: result.name, role: result.role, token: token })
+    const response = new LoginResponseDTO({ _id: result._id, email: result.email, name: result.name, role: result.role, token: token })
     return new ApiSuccess(response, MESSAGES.AUTH.SUCCESS_LOGIN).send(res)
   }
 }

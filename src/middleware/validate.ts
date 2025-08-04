@@ -14,7 +14,12 @@ export const validate =
           errors: flatErrors,
         });
       }
-      req[location] = result.data;
-      next();
+      Object.defineProperty(req, location, {
+        value: result.data,
+        writable: true,
+        configurable: true,
+        enumerable: true,
+      });
+      next()
     };
 

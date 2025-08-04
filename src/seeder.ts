@@ -31,9 +31,7 @@ async function seed() {
       createdBy: l1._id,
       assignedTo: l1._id,
       escalationLevel: 0,
-      logs: [
-        { actionBy: l1._id, role: 'L1', note: 'Ticket created by L1' }
-      ]
+      logs: []
     });
     await Ticket.create({
       title: 'Email service slow',
@@ -48,8 +46,6 @@ async function seed() {
       criticalLevel: 'C2',
       escalatedBy: l1._id,
       logs: [
-        { actionBy: l1._id, role: 'L1', note: 'Ticket created by L1' },
-        { actionBy: l1._id, role: 'L1', note: 'Escalated to L2' },
         { actionBy: l2._id, role: 'L2', note: 'Assigned C2 by L2' }
       ]
     });
@@ -66,8 +62,6 @@ async function seed() {
       criticalLevel: 'C1',
       escalatedBy: l2._id,
       logs: [
-        { actionBy: l1._id, role: 'L1', note: 'Ticket created by L1' },
-        { actionBy: l1._id, role: 'L1', note: 'Escalated to L2' },
         { actionBy: l2._id, role: 'L2', note: 'Assigned C1, escalated to L3' },
         { actionBy: l3._id, role: 'L3', note: 'Investigating and applying fix' }
       ]

@@ -1,5 +1,6 @@
 import request from 'supertest';
-import app from '../../../app';
+import { createTestApp } from '../../../__tests__/utils/app';
+import authRouter from '../interfaces/auth.routes';
 import UserModel from '../../../models/User';
 import bcrypt from 'bcrypt';
 import JwtService from '../../../shared/jwt';
@@ -8,20 +9,17 @@ jest.mock('../../../models/User');
 jest.mock('bcrypt');
 jest.mock('../../../shared/jwt');
 
+const mockUser = {
+  _id: 'user-123',
+  id: 'user-123',
+  email: 'l1@example.com',
+  password: 'password',
+  role: 'L1',
+  name: 'Role L1',
+};
+
+const app = createTestApp(authRouter, null, '/api/v1/auth');
 describe('POST /api/v1/auth/login', () => {
-  const mockUser = {
-    _id: 'user-123',
-    id: 'user-123',
-    email: 'l1@example.com',
-    password: 'password',
-    role: 'L1',
-    name: 'Role L1',
-  };
-
-  beforeEach(() => {
-    jest.clearAllMocks();
-  });
-
   it('should return 200 and token when credentials are valid', async () => {
     (UserModel.findOne as jest.Mock).mockResolvedValue(mockUser);
     (bcrypt.compare as jest.Mock).mockResolvedValue(true);
@@ -39,7 +37,6 @@ describe('POST /api/v1/auth/login', () => {
     expect(res.body.data.name).toBe('Role L1');
   });
 
-
   it('should return 401 when user not found', async () => {
     (UserModel.findOne as jest.Mock).mockResolvedValue(null);
 
@@ -49,6 +46,7 @@ describe('POST /api/v1/auth/login', () => {
         email: 'notfound@example.com',
         password: 'anyasasdasd',
       });
+
     expect(res.status).toBe(401);
     expect(res.body.message).toMatch(/invalid credentials/i);
   });
@@ -60,7 +58,7 @@ describe('POST /api/v1/auth/login', () => {
     const res = await request(app)
       .post('/api/v1/auth/login')
       .send({
-        email: 'test@example.com',
+        email: 'l1@example.com',
         password: 'wrongpassword',
       });
     expect(res.status).toBe(401);
@@ -76,3 +74,4 @@ describe('POST /api/v1/auth/login', () => {
     expect(res.body.message).toMatch(/validation failed/i);
   });
 });
+

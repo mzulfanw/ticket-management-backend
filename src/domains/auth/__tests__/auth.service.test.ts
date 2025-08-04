@@ -26,10 +26,7 @@ describe('AuthService', () => {
 
   beforeEach(() => {
     authService = new AuthService(mockRepo);
-  });
-
-  afterEach(() => {
-    jest.clearAllMocks();
+    jest.clearAllMocks()
   });
 
   it('should return token and user if credentials are valid', async () => {

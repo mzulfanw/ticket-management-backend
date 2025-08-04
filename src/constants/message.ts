@@ -15,7 +15,9 @@ const MESSAGES = {
     SUCCESS_CREATED_DATA: 'Successful created data',
     SUCCESS_UPDATE_DATA: 'Successful updated / moved data',
     FORBIDDEN: 'Only :param1 ticket can be escalated to :param2',
-    MAX_ESCALATION: 'Ticket already at max escalation'
+    MAX_ESCALATION: 'Ticket already at max escalation',
+    SUCCESS_CRITICAL_DATA: 'Successful updated critical data',
+    SUCCESS_CLOSE_TICKET: 'Successful close ticket'
   }
 }
 

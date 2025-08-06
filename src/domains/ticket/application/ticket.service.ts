@@ -133,7 +133,6 @@ export class TicketService {
     const shouldAddLog = user.role !== ROLES.L1
     const newLogs = shouldAddLog
       ? [
-        ...(ticket.logs || []),
         {
           actionBy: user,
           role: user.role,
@@ -158,7 +157,6 @@ export class TicketService {
     const updated = await this.repo.update(ticketId, {
       criticalLevel: dto.level,
       logs: [
-        ...(ticket.logs || []),
         {
           actionBy: user,
           role: user.role,
@@ -179,7 +177,6 @@ export class TicketService {
       resolution: dto.resolution,
       closedAt: new Date(),
       logs: [
-        ...(ticket.logs || []),
         {
           actionBy: user,
           role: user.role,
